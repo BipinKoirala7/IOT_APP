@@ -44,7 +44,9 @@ app.get("/data", async (req, res) => {
       console.log(error);
       throw error;
     }
-    res.json({ success: true, message: "Successfully Fetched data", data });
+    res
+      .status(200)
+      .json({ success: true, message: "Successfully Fetched data", data });
   } catch (error) {
     res.status(500).json({ error: err.message });
   }
